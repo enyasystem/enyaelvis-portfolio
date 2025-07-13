@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { ArrowDown, ChevronRight, Code, Terminal } from "lucide-react"
+import { ArrowDown, ChevronRight, Code, Terminal, Rocket } from "lucide-react"
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -188,13 +188,22 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <Button
-                size="lg"
-                className="text-base group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary transition-all duration-500"
-                onClick={scrollToProjects}
-              >
-                <span className="relative z-10">View My Work</span>
-              </Button>
+            <Button
+              size="lg"
+              className="text-base group relative overflow-hidden bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary transition-all duration-500 shadow-lg ring-4 ring-accent/40 scale-105 animate-pulse"
+              style={{ fontWeight: 900, letterSpacing: '0.06em', fontSize: '1.25rem', boxShadow: '0 0 24px 4px var(--accent)' }}
+              onClick={scrollToProjects}
+            >
+              <span className="relative z-10 flex items-center gap-2 text-white font-extrabold drop-shadow-lg" style={{textShadow: '0 0 8px #000, 0 0 16px var(--accent)'}}>
+                <ChevronRight className="h-5 w-5 animate-bounce" />
+                View My Work
+                <ChevronRight className="h-5 w-5 animate-bounce" />
+                <span className="inline-block">
+                  <Rocket className="h-5 w-5 rocket-fly" />
+                </span>
+              </span>
+            </Button>
+
               <Button
                 variant="outline"
                 size="lg"
@@ -236,7 +245,7 @@ const Hero = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl neon-border">
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/Enya Elvis.png?height=400&width=400"
                   alt="Elvis - Full-Stack Developer"
                   fill
                   className="object-cover"

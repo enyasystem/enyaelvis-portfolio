@@ -74,22 +74,22 @@ const About = () => {
           <TabsContent value="about" className="mt-0">
             <div className="flex flex-col md:flex-row gap-12 items-center">
               <motion.div
-                className="w-full md:w-2/5"
+                className="w-full md:w-2/5 flex flex-col justify-center"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="relative">
-                  <div className="w-full h-[400px] relative rounded-lg overflow-hidden shadow-lg neon-border">
+                <div className="flex flex-col justify-center h-full">
+                  <div className="relative w-[120px] h-[160px] md:w-[140px] md:h-[180px] rounded-lg overflow-hidden shadow-lg neon-border mb-4 mx-auto">
                     <Image
-                      src="/placeholder.svg?height=800&width=600"
+                      src="/Enya Elvis.png?height=180&width=140"
                       alt="Elvis - Professional Photo"
                       fill
-                      className="object-cover"
+                      className="object-cover rounded-lg"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-lg"></div>
                   </div>
-                  <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-primary to-accent text-white p-4 rounded-lg shadow-lg">
+                  <div className="bg-gradient-to-r from-primary to-accent text-white p-3 rounded-lg shadow-lg w-fit text-center mx-auto">
                     <p className="font-bold">Currently at</p>
                     <p>Booster Base NIG LTD</p>
                   </div>
@@ -97,7 +97,7 @@ const About = () => {
               </motion.div>
 
               <motion.div
-                className="w-full md:w-3/5"
+                className="w-full md:w-3/5 flex flex-col justify-center"
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
