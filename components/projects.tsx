@@ -22,7 +22,7 @@ const projects = [
     title: "Booster Base NG",
     description:
       "A corporate website for an IT training and services company offering professional development programs.",
-    image: "/images/boosterbase.png",
+    image: "https://image.thum.io/get/width/800/crop/600/https://boosterbaseng.com",
     technologies: ["WordPress", "PHP", "JavaScript", "CSS", "Responsive Design"],
     liveUrl: "https://boosterbaseng.com",
     repoUrl: "https://github.com/enyasystem/boosterbase",
@@ -51,7 +51,7 @@ const projects = [
     title: "Access Capital MIC",
     description:
       "A professional website for a mortgage investment company with secure, high-yield investment opportunities.",
-    image: "/images/accesscapital.png",
+    image: "https://image.thum.io/get/width/800/crop/600/https://accesscapitalmic.com",
     technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Responsive Design"],
     liveUrl: "https://accesscapitalmic.com",
     repoUrl: "https://github.com/enyasystem/accesscapital",
@@ -80,7 +80,7 @@ const projects = [
     title: "IEC Services",
     description:
       "An educational consultancy website helping students find pathways to world-class education in Canada.",
-    image: "/images/iecservices.png",
+    image: "https://image.thum.io/get/width/800/crop/600/https://iecservices.org",
     technologies: ["WordPress", "PHP", "JavaScript", "Responsive Design", "SEO"],
     liveUrl: "https://iecservices.org",
     repoUrl: "https://github.com/enyasystem/iecservices",
@@ -109,7 +109,7 @@ const projects = [
     title: "Milton High School",
     description:
       "An educational website for a Canadian curriculum school, providing information for students, parents, and prospective families.",
-    image: "/images/miltonhighschool.png",
+    image: "https://image.thum.io/get/width/800/crop/600/https://miltonhighschool.ng",
     technologies: ["WordPress", "Custom PHP", "CSS", "JavaScript", "Responsive Design"],
     liveUrl: "https://miltonhighschool.ng",
     repoUrl: "https://github.com/enyasystem/miltonhighschool",
@@ -137,7 +137,7 @@ const projects = [
     id: 5,
     title: "Boxed Water NG",
     description: "An e-commerce platform for a bottled water company, featuring online ordering and delivery services.",
-    image: "/images/boxedwater.png",
+    image: "https://image.thum.io/get/width/800/crop/600/https://boxedwater.ng",
     technologies: ["WooCommerce", "WordPress", "PHP", "JavaScript", "Payment Integration"],
     liveUrl: "https://boxedwater.ng",
     repoUrl: "https://github.com/enyasystem/boxedwater",
@@ -166,7 +166,7 @@ const projects = [
     title: "Jeason Steel",
     description:
       "A corporate website for a steel manufacturing company, showcasing products, services, and industry expertise.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://image.thum.io/get/width/800/crop/600/https://jeasonsteel.com",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Material UI"],
     liveUrl: "https://jeasonsteel.com",
     repoUrl: "https://github.com/enyasystem/jeasonsteel",
@@ -176,7 +176,7 @@ const projects = [
     id: 7,
     title: "GG Clean Experts",
     description: "A professional cleaning service website offering residential and commercial cleaning solutions with online booking and customer management features.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://image.thum.io/get/width/800/crop/600/https://ggcleanexperts.com",
     technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Vercel"],
     liveUrl: "https://ggcleanexperts.com",
     repoUrl: "https://github.com/enyasystem/ggcleanexperts",
@@ -187,7 +187,7 @@ const projects = [
     title: "Telegram Bot",
     description:
       "A Telegram bot that uses AI to answer questions, generate content, and provide personalized recommendations.",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://image.thum.io/get/width/800/crop/600/https://t.me/elvisaibot",
     technologies: ["Node.js", "Telegram API", "OpenAI", "MongoDB"],
     liveUrl: "https://t.me/elvisaibot",
     repoUrl: "https://github.com/enyasystem/telegram-ai-bot",
@@ -198,7 +198,7 @@ const projects = [
       title: "RS News NG",
       description:
         "A modern Nigerian news platform delivering the latest headlines, in-depth articles, and real-time updates across politics, business, entertainment, and more.",
-      image: "/placeholder.svg?height=600&width=800",
+      image: "https://image.thum.io/get/width/800/crop/600/https://rsnewsng.com",
       technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Vercel"],
       liveUrl: "https://rsnewsng.com",
       repoUrl: "https://github.com/enyasystem/rsnewsng",
