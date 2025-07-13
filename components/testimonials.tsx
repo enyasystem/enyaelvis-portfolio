@@ -7,30 +7,30 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const testimonials = [
-  {
-    id: 1,
-    name: "Sarah Johnson",
-    position: "Project Manager",
-    company: "TechSolutions Inc.",
-    image: "/placeholder.svg?height=200&width=200",
-    text: "Elvis is an exceptional developer who consistently delivers high-quality work. His attention to detail and problem-solving skills made our project a success. He's not just technically proficient but also great at communicating complex concepts to non-technical stakeholders.",
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    position: "CTO",
-    company: "StartupHub",
-    image: "/placeholder.svg?height=200&width=200",
-    text: "Working with Elvis was a game-changer for our startup. He quickly understood our vision and implemented solutions that exceeded our expectations. His expertise in both frontend and backend development, combined with his knowledge of AI integration, brought our product to the next level.",
-  },
-  {
-    id: 3,
-    name: "Olivia Rodriguez",
-    position: "UI/UX Designer",
-    company: "DesignCraft",
-    image: "/placeholder.svg?height=200&width=200",
-    text: "As a designer, I appreciate developers who can bring designs to life exactly as envisioned. Elvis does this and more. His attention to animation details and responsive implementation made our collaboration seamless. He's truly a developer who cares about the user experience.",
-  },
+  // {
+  //   id: 1,
+  //   name: "Sarah Johnson",
+  //   position: "Project Manager",
+  //   company: "TechSolutions Inc.",
+  //   image: "/placeholder.svg?height=200&width=200",
+  //   text: "Elvis is an exceptional developer who consistently delivers high-quality work. His attention to detail and problem-solving skills made our project a success. He's not just technically proficient but also great at communicating complex concepts to non-technical stakeholders.",
+  // },
+  // {
+  //   id: 2,
+  //   name: "Michael Chen",
+  //   position: "CTO",
+  //   company: "StartupHub",
+  //   image: "/placeholder.svg?height=200&width=200",
+  //   text: "Working with Elvis was a game-changer for our startup. He quickly understood our vision and implemented solutions that exceeded our expectations. His expertise in both frontend and backend development, combined with his knowledge of AI integration, brought our product to the next level.",
+  // },
+  // {
+  //   id: 3,
+  //   name: "Olivia Rodriguez",
+  //   position: "UI/UX Designer",
+  //   company: "DesignCraft",
+  //   image: "/placeholder.svg?height=200&width=200",
+  //   text: "As a designer, I appreciate developers who can bring designs to life exactly as envisioned. Elvis does this and more. His attention to animation details and responsive implementation made our collaboration seamless. He's truly a developer who cares about the user experience.",
+  // },
 ]
 
 const Testimonials = () => {
