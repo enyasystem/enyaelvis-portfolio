@@ -9,36 +9,37 @@ import Image from "next/image"
 
 // Import tech icons
 const techIcons = {
-  JavaScript: "/icons/javascript.svg",
-  TypeScript: "/icons/typescript.svg",
-  PHP: "/icons/php.svg",
-  Python: "/icons/python.svg",
-  HTML5: "/icons/html5.svg",
-  CSS3: "/icons/css3.svg",
-  React: "/icons/react.svg",
-  "Next.js": "/icons/nextjs.svg",
-  "Material UI": "/icons/material-ui.svg",
-  "Tailwind CSS": "/icons/tailwind.svg",
-  Redux: "/icons/redux.svg",
-  "Framer Motion": "/icons/framer.svg",
-  "Node.js": "/icons/nodejs.svg",
-  Express: "/icons/express.svg",
-  MySQL: "/icons/mysql.svg",
-  // MongoDB: "/icons/mongodb.svg",
-  Firebase: "/icons/firebase.svg",
-  "REST API": "/icons/api.svg",
-  Git: "/icons/git.svg",
-  "CI/CD": "/icons/cicd.svg",
-  Agile: "/icons/agile.svg",
-  Docker: "/icons/docker.svg",
-  Jest: "/icons/jest.svg",
-  Webpack: "/icons/webpack.svg",
-  "Telegram Bots": "/icons/telegram.svg",
-  "Prompt Engineering": "/icons/openai.svg",
-  "ChatGPT API": "/icons/openai.svg",
-  "Discord Bots": "/icons/discord.svg",
-  "AI Integration": "/icons/ai.svg",
-  NLP: "/icons/nlp.svg",
+  JavaScript: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/javascript.svg", color: "#F7DF1E" },
+  TypeScript: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/typescript.svg", color: "#3178C6" },
+  PHP: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/php.svg", color: "#777BB4" },
+  Python: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg", color: "#3776AB" },
+  HTML5: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/html5.svg", color: "#E34F26" },
+  CSS3: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/css3.svg", color: "#1572B6" },
+  React: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/react.svg", color: "#61DAFB" },
+  "Next.js": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nextdotjs.svg", color: "#000000" },
+  "Material UI": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/materialui.svg", color: "#0081CB" },
+  "Tailwind CSS": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg", color: "#06B6D4" },
+  Redux: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/redux.svg", color: "#764ABC" },
+  "Framer Motion": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/framermotion.svg", color: "#0055FF" },
+  "Node.js": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/nodedotjs.svg", color: "#339933" },
+  Express: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/express.svg", color: "#000000" },
+  MySQL: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mysql.svg", color: "#4479A1" },
+  MongoDB: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/mongodb.svg", color: "#47A248" },
+  Firebase: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/firebase.svg", color: "#FFCA28" },
+  "REST API": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/postman.svg", color: "#FF6C37" },
+  Git: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/git.svg", color: "#F05032" },
+  "CI/CD": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/githubactions.svg", color: "#2088FF" },
+  Agile: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jira.svg", color: "#0052CC" },
+  Docker: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/docker.svg", color: "#2496ED" },
+  Jest: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/jest.svg", color: "#C21325" },
+  Webpack: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/webpack.svg", color: "#8DD6F9" },
+  Supabase: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/supabase.svg", color: "#3ECF8E" },
+  "Telegram Bots": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/telegram.svg", color: "#26A5E4" },
+  "Prompt Engineering": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg", color: "#412991" },
+  "ChatGPT API": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg", color: "#412991" },
+  "Discord Bots": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/discord.svg", color: "#5865F2" },
+  "AI Integration": { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg", color: "#412991" },
+  NLP: { url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/numpy.svg", color: "#013243" },
 }
 
 const skillCategories = [
@@ -64,7 +65,7 @@ const skillCategories = [
       { name: "Next.js", level: "Proficient", icon: techIcons["Next.js"] },
       { name: "Material UI", level: "Proficient", icon: techIcons["Material UI"] },
       { name: "Tailwind CSS", level: "Expert", icon: techIcons["Tailwind CSS"] },
-      { name: "Redux", level: "Proficient", icon: techIcons.Redux },
+      { name: "Redux", level: "Familiar", icon: techIcons.Redux },
       { name: "Framer Motion", level: "Familiar", icon: techIcons["Framer Motion"] },
     ],
   },
@@ -74,11 +75,11 @@ const skillCategories = [
     icon: <Database className="h-5 w-5" />,
     skills: [
       { name: "Node.js", level: "Expert", icon: techIcons["Node.js"] },
-      { name: "Express", level: "Expert", icon: techIcons.Express },
+      { name: "Express", level: "Familiar", icon: techIcons.Express },
       { name: "MySQL", level: "Proficient", icon: techIcons.MySQL },
-      // { name: "MongoDB", level: "Proficient", icon: techIcons.MongoDB },
-      { name: "Firebase", level: "Familiar", icon: techIcons.Firebase },
-      { name: "REST API", level: "Expert", icon: techIcons["REST API"] },
+      { name: "MongoDB", level: "Familiar", icon: techIcons.MongoDB },
+      { name: "Supabase", level: "Familiar", icon: techIcons.Supabase },
+      { name: "REST API", level: "Familiar", icon: techIcons["REST API"] },
     ],
   },
   {
@@ -87,9 +88,9 @@ const skillCategories = [
     icon: <GitBranch className="h-5 w-5" />,
     skills: [
       { name: "Git", level: "Expert", icon: techIcons.Git },
-      { name: "CI/CD", level: "Proficient", icon: techIcons["CI/CD"] },
-      { name: "Agile", level: "Proficient", icon: techIcons.Agile },
-      // { name: "Docker", level: "Familiar", icon: techIcons.Docker },
+      { name: "CI/CD", level: "Familiar", icon: techIcons["CI/CD"] },
+      { name: "Agile", level: "Familiar", icon: techIcons.Agile },
+      { name: "Docker", level: "Familiar", icon: techIcons.Docker },
       // { name: "Jest", level: "Proficient", icon: techIcons.Jest },
       // { name: "Webpack", level: "Familiar", icon: techIcons.Webpack },
     ],
@@ -104,7 +105,7 @@ const skillCategories = [
       { name: "ChatGPT API", level: "Proficient", icon: techIcons["ChatGPT API"] },
       { name: "Discord Bots", level: "Familiar", icon: techIcons["Discord Bots"] },
       { name: "AI Integration", level: "Proficient", icon: techIcons["AI Integration"] },
-      // { name: "NLP", level: "Familiar", icon: techIcons.NLP },
+      { name: "NLP", level: "Familiar", icon: techIcons.NLP },
     ],
   },
 ]
@@ -152,13 +153,15 @@ const SkillCard = ({ skill, index }: { skill: { name: string; level: string; ico
     >
       <div className="w-10 h-10 relative flex items-center justify-center">
         {skill.icon ? (
-          <Image
-            src={skill.icon || "/placeholder.svg"}
-            alt={skill.name}
-            width={32}
-            height={32}
-            className="object-contain"
-          />
+          <span className="w-8 h-8 flex items-center justify-center rounded-full" style={{ background: skill.icon.color + '22' }}>
+            <img
+              src={skill.icon.url}
+              alt={skill.name}
+              width={28}
+              height={28}
+              style={{ objectFit: "contain", filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.08))" }}
+            />
+          </span>
         ) : (
           <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
             <Code className="h-4 w-4 text-primary" />
