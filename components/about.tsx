@@ -142,7 +142,7 @@ const About = () => {
                   </Button>
 
                   <Button variant="outline" asChild className="group border-primary/50 hover:border-primary">
-                    <a href="https://linkedin.com/in/elvis" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.linkedin.com/in/enyaelvis/" target="_blank" rel="noopener noreferrer">
                       <Linkedin className="mr-2 h-4 w-4 group-hover:text-primary transition-colors" />
                       LinkedIn
                     </a>
@@ -277,7 +277,6 @@ const About = () => {
                   </p>
                   <ul className="list-disc pl-5 text-sm text-foreground/80 space-y-1">
                     <li>Author of Complete24Vibes technical blog</li>
-                    <li>Guest writer for dev.to and Medium</li>
                     <li>Creating comprehensive documentation for projects</li>
                   </ul>
                 </div>
