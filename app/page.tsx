@@ -5,7 +5,9 @@ import Projects from "@/components/projects"
 import Timeline from "@/components/timeline"
 import Testimonials from "@/components/testimonials"
 import Contact from "@/components/contact"
+
 import Footer from "@/components/footer"
+import WhatsAppFloat from "@/components/whatsapp-float"
 
 export default function Home() {
   return (
@@ -18,6 +20,7 @@ export default function Home() {
       <Testimonials />
       <Contact />
       <Footer />
+      <WhatsAppFloat />
     </main>
   )
 }
