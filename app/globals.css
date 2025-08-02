@@ -1,3 +1,40 @@
+@layer utilities {
+  .animate-fadeOut {
+    animation: fadeOutLoader 0.7s 1.2s forwards;
+  }
+  @keyframes fadeOutLoader {
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  .animate-bounce-slow {
+    animation: bounceSlow 1.8s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  @keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+  }
+  .animate-text-glow {
+    animation: textGlow 2s infinite alternate;
+  }
+  @keyframes textGlow {
+    from {
+      text-shadow: 0 0 8px #a5b4fc, 0 0 16px #818cf8;
+    }
+    to {
+      text-shadow: 0 0 24px #818cf8, 0 0 48px #6366f1;
+    }
+  }
+  .animate-loaderBar {
+    animation: loaderBarMove 1.2s infinite linear;
+  }
+  @keyframes loaderBarMove {
+    0% { left: 0; width: 30%; }
+    50% { left: 70%; width: 30%; }
+    100% { left: 0; width: 30%; }
+  }
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
+import Loader from "@/components/loader"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 
@@ -92,6 +93,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${poppins.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Header />
+          <Loader />
           {children}
         </ThemeProvider>
       </body>
