@@ -7,53 +7,52 @@ import { motion } from "framer-motion"
 import { ArrowDown, ChevronRight, Code, Terminal, Rocket } from "lucide-react"
 
 const Hero = () => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [text, setText] = useState("")
-  const [index, setIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(false);
+  const [text, setText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
   const phrases = [
     "Building innovative web solutions",
     "Creating AI-powered applications",
     "Designing intuitive user experiences",
     "Developing scalable backend systems",
-  ]
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  ];
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    setIsVisible(true)
+    setIsVisible(true);
+    let timer: NodeJS.Timeout;
+    const currentPhrase = phrases[index];
 
-    // Typing animation
-    const typingInterval = setInterval(() => {
-      const currentPhrase = phrases[index]
-      if (text.length < currentPhrase.length) {
-        setText(currentPhrase.substring(0, text.length + 1))
-      } else {
-        // Wait a bit before starting to delete
-        setTimeout(() => {
-          // Start deleting
-          const deletingInterval = setInterval(() => {
-            if (text.length > 0) {
-              setText(text.substring(0, text.length - 1))
-            } else {
-              clearInterval(deletingInterval)
-              setIndex((prevIndex) => (prevIndex + 1) % phrases.length)
-            }
-          }, 50)
+    if (!isDeleting && text.length < currentPhrase.length) {
+      timer = setTimeout(() => {
+        setText(currentPhrase.substring(0, text.length + 1));
+      }, 100);
+    } else if (!isDeleting && text.length === currentPhrase.length) {
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2000);
+    } else if (isDeleting && text.length > 0) {
+      timer = setTimeout(() => {
+        setText(currentPhrase.substring(0, text.length - 1));
+      }, 50);
+    } else if (isDeleting && text.length === 0) {
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+        setIndex((prev) => (prev + 1) % phrases.length);
+      }, 300);
+    }
 
-          return () => clearInterval(deletingInterval)
-        }, 2000)
-      }
-    }, 100)
-
-    return () => clearInterval(typingInterval)
-  }, [text, index, phrases])
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, index, phrases]);
 
   // Canvas animation
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     // Set canvas dimensions
     const setCanvasDimensions = () => {
@@ -74,30 +73,30 @@ const Hero = () => {
       color: string
 
       constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
-        this.size = Math.random() * 3 + 1
-        this.speedX = Math.random() * 1 - 0.5
-        this.speedY = Math.random() * 1 - 0.5
-        this.color = `hsla(${Math.random() * 60 + 240}, 70%, 50%, ${Math.random() * 0.3 + 0.1})`
+        this.x = Math.random() * canvas!.width;
+        this.y = Math.random() * canvas!.height;
+        this.size = Math.random() * 3 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = `hsla(${Math.random() * 60 + 240}, 70%, 50%, ${Math.random() * 0.3 + 0.1})`;
       }
 
       update() {
-        this.x += this.speedX
-        this.y += this.speedY
+        this.x += this.speedX;
+        this.y += this.speedY;
 
-        if (this.x > canvas.width) this.x = 0
-        else if (this.x < 0) this.x = canvas.width
+        if (this.x > canvas!.width) this.x = 0;
+        else if (this.x < 0) this.x = canvas!.width;
 
-        if (this.y > canvas.height) this.y = 0
-        else if (this.y < 0) this.y = canvas.height
+        if (this.y > canvas!.height) this.y = 0;
+        else if (this.y < 0) this.y = canvas!.height;
       }
 
       draw() {
-        ctx.fillStyle = this.color
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fill()
+        ctx!.fillStyle = this.color;
+        ctx!.beginPath();
+        ctx!.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx!.fill();
       }
     }
 
@@ -111,34 +110,34 @@ const Hero = () => {
 
     // Animation loop
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
 
       for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update()
-        particlesArray[i].draw()
+        particlesArray[i].update();
+        particlesArray[i].draw();
       }
 
       // Connect particles
-      connectParticles()
+      connectParticles();
 
-      requestAnimationFrame(animate)
+      requestAnimationFrame(animate);
     }
 
     // Connect particles with lines
     const connectParticles = () => {
       for (let a = 0; a < particlesArray.length; a++) {
         for (let b = a; b < particlesArray.length; b++) {
-          const dx = particlesArray[a].x - particlesArray[b].x
-          const dy = particlesArray[a].y - particlesArray[b].y
-          const distance = Math.sqrt(dx * dx + dy * dy)
+          const dx = particlesArray[a].x - particlesArray[b].x;
+          const dy = particlesArray[a].y - particlesArray[b].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 100) {
-            ctx.strokeStyle = `rgba(130, 90, 255, ${0.2 - distance / 500})`
-            ctx.lineWidth = 0.5
-            ctx.beginPath()
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y)
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y)
-            ctx.stroke()
+            ctx!.strokeStyle = `rgba(130, 90, 255, ${0.2 - distance / 500})`;
+            ctx!.lineWidth = 0.5;
+            ctx!.beginPath();
+            ctx!.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx!.lineTo(particlesArray[b].x, particlesArray[b].y);
+            ctx!.stroke();
           }
         }
       }
@@ -184,7 +183,7 @@ const Hero = () => {
             </h1>
 
             <div className="h-16 mb-8">
-              <p className="text-lg md:text-xl text-foreground/90 typing-animation">{text}</p>
+              <p className="text-lg md:text-xl text-foreground/90 typing-animation text-glow">{text}</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -245,7 +244,7 @@ const Hero = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-primary/20 shadow-xl neon-border">
                 <Image
-                  src="/Enya Elvis.png?height=400&width=400"
+                  src="/myLogo.png?height=400&width=400"
                   alt="Elvis - Full-Stack Developer"
                   fill
                   className="object-cover"

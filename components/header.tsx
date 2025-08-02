@@ -31,8 +31,8 @@ const Header = () => {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center mr-2">
-            <Code className="h-5 w-5 text-white" />
+          <div className="w-10 h-10 flex items-center justify-center mr-2">
+            <img src="/myLogo.png" alt="Logo" className="w-full h-full object-contain" />
           </div>
           <span className="text-xl font-bold gradient-text">Enyaelvis.dev</span>
         </Link>

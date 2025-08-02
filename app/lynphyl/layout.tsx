@@ -26,11 +26,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Enya Elvis" }],
   creator: "Enya Elvis",
   publisher: "Enya Elvis",
-  icons: {
-    icon: "/myLogo.png",
-    shortcut: "/myLogo.png",
-    apple: "/myLogo.png",
-  },
   formatDetection: {
     email: true,
     address: true,
@@ -48,9 +43,9 @@ export const metadata: Metadata = {
     description:
       "Professional portfolio of Enya Elvis, a full-stack developer specializing in JavaScript, React, Node.js, and AI technologies.",
     siteName: "Enya Elvis Portfolio",
-    images: [
-      {
-        url: "/myLogo.png",
+     images: [
+       {
+         url: "/Enya Elvis.png",
         width: 1200,
         height: 630,
         alt: "Enya Elvis - Full-Stack Developer & AI Enthusiast",
@@ -63,7 +58,7 @@ export const metadata: Metadata = {
     description:
       "Professional portfolio of Enya Elvis, a full-stack developer specializing in JavaScript, React, Node.js, and AI technologies.",
     creator: "@enyasystem",
-    images: ["/og-image.jpg"],
+     images: ["/Enya Elvis.png"],
   },
   robots: {
     index: true,
@@ -86,6 +81,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" type="image/png" href="/Enya-fav-icon.png" />
+      </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Header />

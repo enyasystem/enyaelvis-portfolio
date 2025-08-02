@@ -82,7 +82,7 @@ const About = () => {
                 <div className="flex flex-col justify-center h-full">
                   <div className="relative w-[120px] h-[160px] md:w-[140px] md:h-[180px] rounded-lg overflow-hidden shadow-lg neon-border mb-4 mx-auto">
                     <Image
-                      src="/Enya Elvis.png?height=180&width=140"
+                      src="/myLogo.png?height=180&width=140"
                       alt="Elvis - Professional Photo"
                       fill
                       className="object-cover rounded-lg"

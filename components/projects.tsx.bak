@@ -1,11 +1,30 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { getProjectImage } from "@/lib/utils/projects"
+import { Badge } from "@/components/ui/badge">
+        <Image
+          src={getProjectImage(project.liveUrl).local}
+          alt={project.title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+          priority={project.featured}
+          onError={(e) => {
+            // Try the screenshot service if local image fails
+            const target = e.target as HTMLImageElement;
+            const images = getProjectImage(project.liveUrl);
+            target.src = images.fallback;
+            
+            // Set up one more fallback to placeholder
+            target.onerror = () => {
+              target.src = images.placeholder;
+              target.onerror = null; // Prevent infinite loop
+            };
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"> } from "@/lib/utils/projects"
 import {
   Dialog,
   DialogContent,
@@ -15,27 +34,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Github, ExternalLink, Maximize2 } from "lucide-react"
-
-interface CaseStudy {
-  goal: string;
-  challenges: string[];
-  solutions: string[];
-  outcomes: string[];
-}
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  repoUrl: string;
-  liveUrl: string;
-  featured: boolean;
-  caseStudy?: CaseStudy;
-}
-
-// Project card component
 
 // Sample project data
 const projects = [
@@ -73,7 +71,7 @@ const projects = [
     title: "Access Capital MIC",
     description:
       "A professional website for a mortgage investment company with secure, high-yield investment opportunities.",
-    image: "/projects/accessCapital.png",
+    image: "/projects/access-capital.jpg",
     technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "Responsive Design"],
     liveUrl: "https://accesscapitalmic.com",
     repoUrl: "https://github.com/enyasystem/accesscapital",
@@ -106,7 +104,25 @@ const projects = [
     technologies: ["WordPress", "PHP", "JavaScript", "Responsive Design", "SEO"],
     liveUrl: "https://iecservices.org",
     repoUrl: "https://github.com/enyasystem/iecservices",
-    featured: false,
+    featured: true,
+    caseStudy: {
+      goal: "Create a professional website for an educational consultancy that helps students navigate the process of studying in Canada.",
+      challenges: [
+        "Designing an intuitive interface for prospective students to find relevant programs",
+        "Creating a content management system for educational resources and program listings",
+        "Implementing multilingual support for international students",
+      ],
+      solutions: [
+        "Developed a user-friendly navigation system with clear pathways for different student needs",
+        "Created custom post types for programs, institutions, and resources with advanced filtering",
+        "Implemented a responsive design that works across all devices and screen sizes",
+      ],
+      outcomes: [
+        "40% increase in student inquiries",
+        "Improved conversion rate for consultation bookings",
+        "Enhanced visibility in search engine results for key educational terms",
+      ],
+    },
   },
   {
     id: 4,
@@ -117,7 +133,25 @@ const projects = [
     technologies: ["WordPress", "Custom PHP", "CSS", "JavaScript", "Responsive Design"],
     liveUrl: "https://miltonhighschool.ng",
     repoUrl: "https://github.com/enyasystem/miltonhighschool",
-    featured: false,
+    featured: true,
+    caseStudy: {
+      goal: "Develop a modern, user-friendly website for an educational institution that serves both local and international students.",
+      challenges: [
+        "Creating a content management system that's easy for school staff to update",
+        "Designing a site that appeals to both students and parents",
+        "Implementing features for online applications and admissions",
+      ],
+      solutions: [
+        "Customized WordPress with a user-friendly admin interface for staff updates",
+        "Created a vibrant, engaging design with clear information architecture",
+        "Developed custom forms and workflows for the admissions process",
+      ],
+      outcomes: [
+        "50% increase in online applications",
+        "Reduced administrative workload for admissions staff",
+        "Improved communication with current and prospective students",
+      ],
+    },
   },
   {
     id: 5,
@@ -127,7 +161,25 @@ const projects = [
     technologies: ["WooCommerce", "WordPress", "PHP", "JavaScript", "Payment Integration"],
     liveUrl: "https://boxedwater.ng",
     repoUrl: "https://github.com/enyasystem/boxedwater",
-    featured: false,
+    featured: true,
+    caseStudy: {
+      goal: "Build an e-commerce platform for a water company that enables easy online ordering and delivery management.",
+      challenges: [
+        "Implementing secure payment processing for Nigerian customers",
+        "Creating an efficient inventory and delivery management system",
+        "Designing a mobile-first shopping experience",
+      ],
+      solutions: [
+        "Integrated multiple local payment gateways for secure transactions",
+        "Developed a custom inventory tracking and delivery scheduling system",
+        "Created a responsive, mobile-optimized shopping experience",
+      ],
+      outcomes: [
+        "200% increase in online orders within first 3 months",
+        "Streamlined delivery operations and reduced fulfillment time",
+        "Expanded customer base beyond local market",
+      ],
+    },
   },
   {
     id: 6,
@@ -143,7 +195,7 @@ const projects = [
   {
     id: 7,
     title: "GG Clean Experts",
-    description: "A professional cleaning service website offering residential and commercial cleaning solutions.",
+    description: "A professional cleaning service website offering residential and commercial cleaning solutions with online booking and customer management features.",
     image: "/projects/gg-clean-experts.jpg",
     technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Vercel"],
     liveUrl: "https://ggcleanexperts.com",
@@ -154,28 +206,27 @@ const projects = [
     id: 8,
     title: "Endvre",
     description:
-      "A luxury e-commerce platform featuring high-end watches and fashion accessories.",
+      "A luxury e-commerce platform featuring high-end watches and fashion accessories with a focus on premium user experience.",
     image: "/projects/endvre.jpg",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Stripe", "Prisma"],
     liveUrl: "https://endvre.com",
     repoUrl: "https://github.com/enyasystem/endvre",
     featured: false,
   },
-  {
-    id: 9,
-    title: "RS News NG",
-    description:
-      "A modern Nigerian news platform delivering the latest headlines and in-depth articles.",
-    image: "/projects/rs-news.jpg",
-    technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Vercel"],
-    liveUrl: "https://rsnewsng.com",
-    repoUrl: "https://github.com/enyasystem/rsnewsng",
-    featured: false,
-  },
-] satisfies Project[];
+    {
+      id: 9,
+      title: "RS News NG",
+      description:
+        "A modern Nigerian news platform delivering the latest headlines, in-depth articles, and real-time updates across politics, business, entertainment, and more.",
+      image: "/projects/rs-news.jpg",
+      technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Vercel"],
+      liveUrl: "https://rsnewsng.com",
+      repoUrl: "https://github.com/enyasystem/rsnewsng",
+      featured: false,
+    },
+]
 
-// Project card component
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project }: { project: (typeof projects)[0] }) => {
   return (
     <motion.div
       className="bg-card rounded-lg overflow-hidden border border-border shadow-sm card-hover"
@@ -204,7 +255,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
           <div className="p-4 w-full">
             <div className="flex flex-wrap gap-2 mb-2">
-              {project.technologies.slice(0, 3).map((tech: string, index: number) => (
+              {project.technologies.slice(0, 3).map((tech, index) => (
                 <Badge key={index} variant="secondary" className="bg-white/20 text-white border-none">
                   {tech}
                 </Badge>
@@ -232,16 +283,16 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         <div className="flex justify-between items-center">
           <div className="flex gap-2">
-            {/* <Button size="sm" variant="outline" asChild className="rounded-full">
+            <Button size="sm" variant="outline" asChild className="rounded-full">
               <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="h-4 w-4 mr-1" />
                 Code
               </a>
-            </Button> */}
+            </Button>
             <Button size="sm" variant="outline" asChild className="rounded-full">
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4 mr-1" />
-                View
+                Demo
               </a>
             </Button>
           </div>
@@ -290,7 +341,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                       <div className="bg-muted/30 p-4 rounded-lg">
                         <h4 className="text-lg font-semibold mb-2">Challenges</h4>
                         <ul className="list-disc pl-5 space-y-1">
-                          {project.caseStudy.challenges.map((challenge: string, index: number) => (
+                          {project.caseStudy.challenges.map((challenge, index) => (
                             <li key={index}>{challenge}</li>
                           ))}
                         </ul>
@@ -299,7 +350,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                       <div className="bg-muted/30 p-4 rounded-lg">
                         <h4 className="text-lg font-semibold mb-2">Solutions</h4>
                         <ul className="list-disc pl-5 space-y-1">
-                          {project.caseStudy.solutions.map((solution: string, index: number) => (
+                          {project.caseStudy.solutions.map((solution, index) => (
                             <li key={index}>{solution}</li>
                           ))}
                         </ul>
@@ -309,7 +360,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                     <div>
                       <h4 className="text-lg font-semibold mb-2">Outcomes</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {project.caseStudy.outcomes.map((outcome: string, index: number) => (
+                        {project.caseStudy.outcomes.map((outcome, index) => (
                           <div
                             key={index}
                             className="bg-gradient-to-br from-primary/10 to-accent/10 p-3 rounded-lg text-center"
@@ -322,7 +373,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
                     <div className="flex justify-between pt-4">
                       <div className="flex flex-wrap gap-2">
-                        {project.technologies.map((tech: string, index: number) => (
+                        {project.technologies.map((tech, index) => (
                           <Badge key={index} variant="secondary">
                             {tech}
                           </Badge>
@@ -336,12 +387,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
                             View Live
                           </a>
                         </Button>
-                        {/* <Button size="sm" variant="outline" className="rounded-full" asChild>
+                        <Button size="sm" variant="outline" className="rounded-full" asChild>
                           <a href={project.repoUrl} target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4 mr-1" />
                             View Code
                           </a>
-                        </Button> */}
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -352,79 +403,66 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </div>
       </div>
     </motion.div>
-  );
-};
-const featuredProjects: Project[] = projects.filter(p => p.featured)
-
-const allProjects: Project[] = projects;
+  )
+}
 
 const Projects = () => {
-  const [filter, setFilter] = useState<"all" | "featured">("all")
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(allProjects)
+  const [filter, setFilter] = useState("all")
 
-  useEffect(() => {
-    setFilteredProjects(filter === "all" ? allProjects : featuredProjects)
-  }, [filter])
+  // Get unique technologies from all projects
+  const allTechnologies = Array.from(new Set(projects.flatMap((project) => project.technologies)))
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  }
+  // Filter projects based on selected technology
+  const filteredProjects =
+    filter === "all" ? projects : projects.filter((project) => project.technologies.includes(filter))
 
   return (
-    <section id="projects" className="py-16 bg-background">
-      <div className="container px-4 md:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Projects</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Explore my recent projects and creative works. Each project demonstrates my expertise in
-            different technologies and problem-solving abilities.
-          </p>
+    <section id="projects" className="py-20 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 -z-10 animated-bg opacity-50"></div>
 
-          <div className="flex justify-center gap-4 mb-8">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="section-heading gradient-text">My Projects</h2>
+          <p className="section-subheading">
+            A showcase of my recent work, personal projects, and contributions to the development community.
+          </p>
+        </div>
+
+        <div className="flex justify-center mb-8 overflow-x-auto pb-2">
+          <div className="flex flex-wrap gap-2 justify-center glass-effect p-2 rounded-full">
             <Button
-              variant={filter === "all" ? "default" : "outline"}
+              variant={filter === "all" ? "default" : "ghost"}
+              size="sm"
               onClick={() => setFilter("all")}
               className="rounded-full"
             >
               All Projects
             </Button>
-            <Button
-              variant={filter === "featured" ? "default" : "outline"}
-              onClick={() => setFilter("featured")}
-              className="rounded-full"
-            >
-              Featured
-              <Badge variant="secondary" className="ml-2 -mr-2">
-                {featuredProjects.length}
-              </Badge>
-            </Button>
+
+            {allTechnologies.map((tech, index) => (
+              <Button
+                key={index}
+                variant={filter === tech ? "default" : "ghost"}
+                size="sm"
+                onClick={() => setFilter(tech)}
+                className="rounded-full"
+              >
+                {tech}
+              </Button>
+            ))}
           </div>
         </div>
 
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           {filteredProjects.map((project) => (
-            <motion.div key={project.id} variants={itemVariants}>
-              <ProjectCard project={project} />
-            </motion.div>
+            <ProjectCard key={project.id} project={project} />
           ))}
         </motion.div>
       </div>
