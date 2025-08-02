@@ -45,21 +45,19 @@ const Contact = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // If honeypot field is filled, it's likely a bot
     if (values.honeypot) {
-      return
+      return;
     }
 
-    setIsSubmitting(true)
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log(values)
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I will get back to you soon.",
-      })
-      form.reset()
-      setIsSubmitting(false)
-    }, 1500)
+    // Build WhatsApp message
+    const message = `Hello Enya Elvis!%0A%0AName: ${encodeURIComponent(values.name)}%0AEmail: ${encodeURIComponent(values.email)}%0ASubject: ${encodeURIComponent(values.subject)}%0AMessage: ${encodeURIComponent(values.message)}`;
+    const whatsappUrl = `https://wa.me/2347032845816?text=${message}`;
+
+    // Redirect to WhatsApp
+    window.location.href = whatsappUrl;
+
+    setIsSubmitting(false);
   }
 
   return (
