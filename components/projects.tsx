@@ -45,7 +45,7 @@ const projects = [
     description:
       "A corporate website for an IT training and services company offering professional development programs.",
     image: "/projects/boosterbase.jpg",
-    technologies: ["WordPress", "PHP", "JavaScript", "CSS", "Responsive Design"],
+    technologies: [ "JavaScript", "CSS", "Supabase", "Responsive Design"],
     liveUrl: "https://boosterbaseng.com",
     repoUrl: "https://github.com/enyasystem/boosterbase",
     featured: true,
@@ -103,10 +103,10 @@ const projects = [
     description:
       "An educational consultancy website helping students find pathways to world-class education in Canada.",
     image: "/projects/iec-services.jpg",
-    technologies: ["WordPress", "PHP", "JavaScript", "Responsive Design", "SEO"],
+    technologies: [ "JavaScript", "Responsive Design", "SEO"],
     liveUrl: "https://iecservices.org",
     repoUrl: "https://github.com/enyasystem/iecservices",
-    featured: false,
+    featured: true,
   },
   {
     id: 4,
@@ -135,10 +135,10 @@ const projects = [
     description:
       "A corporate website for a steel manufacturing company, showcasing products, services, and industry expertise.",
     image: "/projects/jeason-steel.jpg",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Material UI"],
+    technologies: ["React", "Node.js", "TypeScript ", "Supabase", "Material UI"],
     liveUrl: "https://jeasonsteel.com",
     repoUrl: "https://github.com/enyasystem/jeasonsteel",
-    featured: false,
+    featured: true,
   },
   {
     id: 7,
@@ -148,7 +148,7 @@ const projects = [
     technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Vercel"],
     liveUrl: "https://ggcleanexperts.com",
     repoUrl: "https://github.com/enyasystem/ggcleanexperts",
-    featured: false,
+    featured: true,
   },
   {
     id: 8,
@@ -170,7 +170,40 @@ const projects = [
     technologies: ["Next.js", "React", "Tailwind CSS", "TypeScript", "Vercel"],
     liveUrl: "https://rsnewsng.com",
     repoUrl: "https://github.com/enyasystem/rsnewsng",
+    featured: true,
+  },
+  {
+    id: 10,
+    title: "MJAY 2025",
+    description:
+      "A modern RSVP website for MJAY 2025, a Nigerian couple planning their wedding.",
+    image: "/projects/mjay2025.jpg",
+    technologies: ["JavaScript", "Node.js", "NeonDB", "Responsive Design"],
+    liveUrl: "http://mjay2025.com",
+    repoUrl: "",
     featured: false,
+  },
+  {
+    id: 11,
+    title: "Adikaze Waste Recycling",
+    description:
+      "Corporate site for Adikaze Waste Recycling, focused on environmental sustainability and recycling services.",
+    image: "/projects/adikaze-waste-recycling.jpg",
+    technologies: ["JavaScript", "Node.js", "NEONDB", "Responsive Design"],
+    liveUrl: "https://www.adikazewasterecycling.com",
+    repoUrl: "",
+    featured: true,
+  },
+  {
+    id: 12,
+    title: "Lynphyl Oil & Gas",
+    description:
+      "Professional website for Lynphyl Oil & Gas, highlighting energy solutions and industry expertise.",
+    image: "/projects/lynphyl-oil-gas.jpg",
+    technologies: ["Nodejs", "Typescript", "JavaScript", "Responsive Design"],
+    liveUrl: "https://www.lynphyloilandgas.com",
+    repoUrl: "",
+    featured: true,
   },
 ] satisfies Project[];
 
