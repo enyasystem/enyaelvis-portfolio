@@ -89,6 +89,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/png" href="/Enya-fav-icon.png" />
+        <meta name="google-site-verification" content="N-c6GKMxJNUO8ClrwFBMb5p1dutz7mRTcpVVGp6_b2s" />
       </head>
       <body className={`${inter.variable} ${poppins.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
