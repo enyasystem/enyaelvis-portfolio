@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <Link href="/" className="text-2xl font-bold gradient-text">
-              Enyaelvis<span className="text-foreground">.dev</span>
+              enyaelvis<span className="text-foreground">.dev</span>
             </Link>
             <p className="text-muted-foreground mt-4 max-w-xs">
               Building innovative web solutions and AI-powered applications that solve real-world problems.
