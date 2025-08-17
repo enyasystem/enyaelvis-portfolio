@@ -162,7 +162,7 @@ const Footer = () => {
             <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors animated-border">
               {/* Terms of Service */}
             </Link>
-            <p className="text-muted-foreground">© {currentYear} Enyaelvis.dev. All rights reserved.</p>
+            <p className="text-muted-foreground">© {currentYear} enyaelvis.dev. All rights reserved.</p>
           </div>
         </div>
       </div>

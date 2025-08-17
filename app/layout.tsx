@@ -37,14 +37,14 @@ export const metadata: Metadata = {
     address: true,
     telephone: true,
   },
-  metadataBase: new URL("https://enyaelvis.dev"),
+  metadataBase: new URL("https://enya-elvis.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://enyaelvis.dev",
+    url: "https://enya-elvis.vercel.app",
     title: "Enya Elvis - Full-Stack Developer & AI Enthusiast",
     description:
       "Professional portfolio of Enya Elvis, a full-stack developer specializing in JavaScript, React, Node.js, and AI technologies.",

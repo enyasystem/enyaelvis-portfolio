@@ -21,6 +21,8 @@ interface CaseStudy {
   challenges: string[];
   solutions: string[];
   outcomes: string[];
+  screenshots?: string[];
+  demoVideo?: string;
 }
 
 interface Project {
@@ -33,6 +35,8 @@ interface Project {
   liveUrl: string;
   featured: boolean;
   caseStudy?: CaseStudy;
+  screenshots?: string[];
+  demoVideo?: string;
 }
 
 // Project card component
@@ -66,6 +70,12 @@ const projects = [
         "Improved user engagement with course materials",
         "Enhanced company brand perception in the IT training market",
       ],
+      screenshots: [
+        "/projects/boosterbase-1.jpg",
+        "/projects/boosterbase-2.jpg",
+        "/projects/boosterbase-mobile.jpg"
+      ],
+      demoVideo: "https://www.youtube.com/embed/dQw4w9WgXcQ"
     },
   },
   {
@@ -294,24 +304,39 @@ const ProjectCard = ({ project }: { project: Project }) => {
                 </DialogHeader>
 
                 <div className="mt-4">
-                  <div className="relative h-64 w-full mb-6 rounded-lg overflow-hidden">
-                    <Image
-                      src={getProjectImage(project.liveUrl).local}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        const images = getProjectImage(project.liveUrl);
-                        target.src = images.fallback;
-                        target.onerror = () => {
-                          target.src = images.placeholder;
-                          target.onerror = null;
-                        };
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  </div>
+                  {/* Gallery Section */}
+                  {project.caseStudy.screenshots && project.caseStudy.screenshots.length > 0 && (
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold mb-2">Screenshots & Views</h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {project.caseStudy.screenshots.map((src, idx) => (
+                          <div key={idx} className="relative h-48 w-full rounded-lg overflow-hidden border border-border">
+                            <Image
+                              src={src}
+                              alt={`${project.title} screenshot ${idx + 1}`}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {/* Demo Video Section */}
+                  {project.caseStudy.demoVideo && (
+                    <div className="mb-6">
+                      <h4 className="text-lg font-semibold mb-2">Demo Video</h4>
+                      <div className="aspect-video rounded-lg overflow-hidden border border-border">
+                        <iframe
+                          src={project.caseStudy.demoVideo}
+                          title={`${project.title} demo video`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          className="w-full h-full"
+                        />
+                      </div>
+                    </div>
+                  )}
 
                   <div className="space-y-6">
                     <div>
